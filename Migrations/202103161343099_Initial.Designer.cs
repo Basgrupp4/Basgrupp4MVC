@@ -13,7 +13,7 @@ namespace Basgrupp4MVC.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202103151343515_Initial"; }
+            get { return "202103161343099_Initial"; }
         }
         
         string IMigrationMetadata.Source

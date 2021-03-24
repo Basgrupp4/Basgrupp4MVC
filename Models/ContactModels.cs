@@ -12,28 +12,28 @@ namespace Basgrupp4MVC.Models
         public int ID { get; set; }
 
         [Required]
-        [StringLength(20, MinimumLength = 3)]
+        [StringLength(20, MinimumLength = 1, ErrorMessage = "The first name must contain 1 to 20 letters")]
         public string FirstName { get; set; }
 
         [Required]
-        [StringLength(20, MinimumLength = 3)]
+        [StringLength(20, MinimumLength = 1, ErrorMessage = "The last name must contain 1 to 20 letters")]
         public string LastName { get; set; }
 
-
         [Required]
-        [Range(1, Int32.MaxValue, ErrorMessage = "Ange giltig ålder!")]
+        [Range(1, Int32.MaxValue, ErrorMessage = "Age must be valid")]
         public int Age { get; set; }
 
         [Required]
         [StringLength(160, MinimumLength = 3)]
-        [RegularExpression(@"^([a-zA-Z0-9_-.]+)@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.)|(([a-zA-Z0-9-]+.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(]?)$", ErrorMessage = "Ange en giltig Email!")]
+        [EmailAddress]
+        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
         public string Email { get; set; }
 
         [Compare("Email")]
         public string EmailConfirm { get; set; }
 
         [Required]
-        [DataType(DataType.PhoneNumber, ErrorMessage = "Var god skriv ett giltigt telefonnummer")]
+        [DataType(DataType.PhoneNumber, ErrorMessage = "Phonenumber is not valid")]
         public string PhoneNumber { get; set; }
     }
 }

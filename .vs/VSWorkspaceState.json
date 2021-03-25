@@ -1,10 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Migrations",
-    "\\Models",
-    "\\Views"
+    ""
   ],
-  "SelectedNode": "\\Models\\ContactModels.cs",
   "PreviewInSolutionExplorer": false
 }

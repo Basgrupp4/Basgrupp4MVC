@@ -1,13 +1,18 @@
 ﻿@model IEnumerable<Basgrupp4MVC.Models.ContactModels>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Contact List";
 }
 
-<h2>Index</h2>
+<h2>Contact List</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
+
+    @using (Html.BeginForm()) { 
+        <p> Search by first or last name: @Html.TextBox("searchString") <br />
+        <input type="submit" value="Search" /></p>
+    }
 </p>
 <table class="table">
     <tr>

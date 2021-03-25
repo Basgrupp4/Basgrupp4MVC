@@ -15,9 +15,22 @@ namespace Basgrupp4MVC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: ContactModels
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    return View(db.ContactModels.ToList());
+        //}
+        public ActionResult Index(string searchString)
         {
-            return View(db.ContactModels.ToList());
+            
+            var contact = from c in db.ContactModels
+                          select c;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                contact = contact.Where(s => s.FirstName.Contains(searchString) || s.LastName.Contains(searchString));
+            }
+
+            return View(contact);
         }
 
         // GET: ContactModels/Details/5
